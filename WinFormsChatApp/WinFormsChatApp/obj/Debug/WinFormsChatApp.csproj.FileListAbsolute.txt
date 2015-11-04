@@ -1,0 +1,1 @@
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\bin\Debug\WinFormsChatApp.exe.config
