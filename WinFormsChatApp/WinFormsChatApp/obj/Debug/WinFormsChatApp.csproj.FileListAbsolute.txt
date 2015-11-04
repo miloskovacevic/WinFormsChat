@@ -1,1 +1,9 @@
 F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\bin\Debug\WinFormsChatApp.exe.config
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\bin\Debug\WinFormsChatApp.exe
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\bin\Debug\WinFormsChatApp.pdb
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.csprojResolveAssemblyReference.cache
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.Form1.resources
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.Properties.Resources.resources
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.csproj.GenerateResource.Cache
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.exe
+F:\CSharp\winforms\WinFormsChat\WinFormsChatApp\WinFormsChatApp\obj\Debug\WinFormsChatApp.pdb

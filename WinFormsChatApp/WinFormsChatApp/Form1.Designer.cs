@@ -79,7 +79,7 @@
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(75, 23);
             this.buttonConnect.TabIndex = 2;
-            this.buttonConnect.Text = "button1";
+            this.buttonConnect.Text = "Connect";
             this.buttonConnect.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -168,7 +168,7 @@
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(75, 23);
             this.buttonSend.TabIndex = 5;
-            this.buttonSend.Text = "button2";
+            this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
             // 
             // Form1
@@ -184,6 +184,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Chat Apps";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
