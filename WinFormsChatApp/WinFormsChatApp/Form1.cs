@@ -49,5 +49,43 @@ namespace WinFormsChatApp
 
             return "127.0.0.1";
         }
+
+        private void buttonConnect_Click(object sender, EventArgs e)
+        {
+            //binding socket
+            epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
+            sck.Bind(epLocal);
+            // connecting to remote IP
+            epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIp.Text), Convert.ToInt32(textRemotePort.Text));
+            sck.Connect(epRemote);
+
+            //listening specific port
+            buffer = new byte[1500];
+            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+
+        
+        }
+
+        private void MessageCallBack(IAsyncResult aResult)
+        {
+            try
+            {
+                byte[] receivedData = new byte[1500];
+                receivedData = (byte[])aResult.AsyncState;
+                // converting recieved bytes to string
+                ASCIIEncoding aEncoding = new ASCIIEncoding();
+                string receivedMessage = aEncoding.GetString(receivedData);
+
+                //adding message to listbox
+                listMessage.Items.Add("Friend: " + receivedMessage);
+
+                buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
     }
 }
