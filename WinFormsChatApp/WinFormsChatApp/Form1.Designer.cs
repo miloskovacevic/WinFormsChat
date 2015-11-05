@@ -42,6 +42,8 @@
             this.textMessage = new System.Windows.Forms.TextBox();
             this.listMessage = new System.Windows.Forms.ListBox();
             this.buttonSend = new System.Windows.Forms.Button();
+            this.lblConStatus = new System.Windows.Forms.Label();
+            this.buttonDisconnect = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -139,7 +141,7 @@
             // buttonConnect
             // 
             this.buttonConnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonConnect.Location = new System.Drawing.Point(506, 68);
+            this.buttonConnect.Location = new System.Drawing.Point(506, 39);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(75, 23);
             this.buttonConnect.TabIndex = 2;
@@ -171,12 +173,37 @@
             this.buttonSend.TabIndex = 5;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            // 
+            // lblConStatus
+            // 
+            this.lblConStatus.AutoSize = true;
+            this.lblConStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConStatus.Location = new System.Drawing.Point(503, 116);
+            this.lblConStatus.Name = "lblConStatus";
+            this.lblConStatus.Size = new System.Drawing.Size(111, 13);
+            this.lblConStatus.TabIndex = 6;
+            this.lblConStatus.Text = "Connection Status";
+            // 
+            // buttonDisconnect
+            // 
+            this.buttonDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDisconnect.Location = new System.Drawing.Point(506, 79);
+            this.buttonDisconnect.Name = "buttonDisconnect";
+            this.buttonDisconnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonDisconnect.TabIndex = 7;
+            this.buttonDisconnect.Text = "Disconnect";
+            this.buttonDisconnect.UseVisualStyleBackColor = true;
+            this.buttonDisconnect.Visible = false;
+            this.buttonDisconnect.Click += new System.EventHandler(this.buttonDisconnect_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 407);
+            this.ClientSize = new System.Drawing.Size(618, 407);
+            this.Controls.Add(this.buttonDisconnect);
+            this.Controls.Add(this.lblConStatus);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.listMessage);
             this.Controls.Add(this.textMessage);
@@ -211,6 +238,8 @@
         private System.Windows.Forms.TextBox textMessage;
         private System.Windows.Forms.ListBox listMessage;
         private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Label lblConStatus;
+        private System.Windows.Forms.Button buttonDisconnect;
     }
 }
 

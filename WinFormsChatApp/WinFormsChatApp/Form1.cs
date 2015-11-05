@@ -52,17 +52,26 @@ namespace WinFormsChatApp
 
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            //binding socket
-            epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
-            sck.Bind(epLocal);
-            // connecting to remote IP
-            epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIp.Text), Convert.ToInt32(textRemotePort.Text));
-            sck.Connect(epRemote);
+            try
+            {
+                //binding socket
+                epLocal = new IPEndPoint(IPAddress.Parse(textLocalIp.Text), Convert.ToInt32(textLocalPort.Text));
+                sck.Bind(epLocal);
+                // connecting to remote IP
+                epRemote = new IPEndPoint(IPAddress.Parse(textRemoteIp.Text), Convert.ToInt32(textRemotePort.Text));
+                sck.Connect(epRemote);
 
-            //listening specific port
-            buffer = new byte[1500];
-            sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+                //listening specific port
+                buffer = new byte[1500];
+                sck.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
+                lblConStatus.Text = "Connected!";
+                buttonDisconnect.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Connection failed", ex.ToString());
+            }
         
         }
 
@@ -86,6 +95,31 @@ namespace WinFormsChatApp
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            if (lblConStatus.Text == "Connected!")
+            {
+                //convert string message to byte
+                ASCIIEncoding aEncoding = new ASCIIEncoding();
+                byte[] sendingMessage = new byte[1500];
+                sendingMessage = aEncoding.GetBytes(textMessage.Text);
+                //sending message
+                sck.Send(sendingMessage);
+                //adding message to listbox
+                listMessage.Items.Add("Me: " + textMessage.Text);
+                textMessage.Text = "";
+            }
+            
+        }
+
+        private void buttonDisconnect_Click(object sender, EventArgs e)
+        {
+            epLocal = null;
+            epRemote = null;
+            lblConStatus.Text = "Connection status";
+            buttonDisconnect.Visible = false;
         }
     }
 }
